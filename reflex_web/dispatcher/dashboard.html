@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reflex - Dispatcher Dashboard</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="dashboard-layout">
+        <header class="header">
+            <div class="header-left">
+                <h1 class="logo">Reflex</h1>
+                <span class="page-title">Dispatcher Dashboard</span>
+            </div>
+            <div class="header-right">
+                <span id="user-info" class="user-info">Dispatcher</span>
+                <button id="logout-btn" class="logout-btn">Logout</button>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <div class="summary-cards">
+                <div class="card">
+                    <div class="card-title">Pending</div>
+                    <div class="card-value" id="count-pending">0</div>
+                </div>
+                <div class="card">
+                    <div class="card-title">Assigned</div>
+                    <div class="card-value" id="count-assigned">0</div>
+                </div>
+                <div class="card">
+                    <div class="card-title">Picked Up</div>
+                    <div class="card-value" id="count-picked-up">0</div>
+                </div>
+                <div class="card">
+                    <div class="card-title">Delivered</div>
+                    <div class="card-value" id="count-delivered">0</div>
+                </div>
+            </div>
+
+            <div class="mb-4">
+                <h2>Delivery Queue</h2>
+            </div>
+
+            <div class="filter-tabs" id="status-filters">
+                <div class="filter-tab active" data-status="ALL">All</div>
+                <div class="filter-tab" data-status="PENDING">Pending</div>
+                <div class="filter-tab" data-status="ASSIGNED">Assigned</div>
+                <div class="filter-tab" data-status="PICKED_UP">Picked Up</div>
+                <div class="filter-tab" data-status="DELIVERED">Delivered</div>
+            </div>
+
+            <div class="table-container">
+                <table id="deliveries-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Customer</th>
+                            <th>Address</th>
+                            <th>Item</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td colspan="6" style="text-align:center;">Loading...</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+
+    <!-- Assign Rider Modal -->
+    <div class="modal-overlay" id="assign-modal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3>Assign Rider</h3>
+            </div>
+            <div class="modal-body">
+                <div id="assign-error" class="error-message" style="display: none;"></div>
+                <div id="assign-success" class="success-message" style="display: none;"></div>
+                
+                <div class="mb-2">
+                    <strong>Delivery #<span id="modal-delivery-id"></span></strong>
+                    <div style="color: var(--text-muted); font-size: 0.875rem;" id="modal-delivery-details"></div>
+                </div>
+                
+                <form id="assign-form">
+                    <input type="hidden" id="delivery_id_input">
+                    <div class="form-group">
+                        <label>Select Rider</label>
+                        <select id="rider_select" required>
+                            <option value="">Loading riders...</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline" id="close-assign-modal">Cancel</button>
+                <button type="submit" form="assign-form" class="btn btn-primary">Assign Rider</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/api.js"></script>
+    <script src="../js/auth.js"></script>
+    <script src="js/dispatcher.js"></script>
+</body>
+</html>

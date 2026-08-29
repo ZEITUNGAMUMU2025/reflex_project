@@ -8,6 +8,7 @@ venv/
 .venv/
 env/
 ENV/
+*.code-workspace
 
 # Environment variables / secrets
 .env

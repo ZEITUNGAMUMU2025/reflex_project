@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reflex - Rider Dashboard</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Mobile-first specific overrides */
+        .header { padding: 1rem; }
+        .main-content { padding: 1rem; }
+        .summary-cards { gap: 1rem; margin-bottom: 1.5rem; }
+        .card { padding: 1rem; }
+    </style>
+</head>
+<body>
+    <div class="dashboard-layout">
+        <header class="header">
+            <div class="header-left">
+                <h1 class="logo" style="font-size: 1.25rem;">Reflex</h1>
+            </div>
+            <div class="header-right">
+                <span id="user-info" class="user-info" style="font-size: 0.875rem;">Rider</span>
+                <button id="logout-btn" class="logout-btn">Logout</button>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <div class="summary-cards">
+                <div class="card">
+                    <div class="card-title">Assigned</div>
+                    <div class="card-value" id="count-assigned">0</div>
+                </div>
+                <div class="card">
+                    <div class="card-title">Picked Up</div>
+                    <div class="card-value" id="count-picked-up">0</div>
+                </div>
+                <div class="card">
+                    <div class="card-title">Delivered</div>
+                    <div class="card-value" id="count-delivered">0</div>
+                </div>
+            </div>
+
+            <div class="mb-2">
+                <h2>My Deliveries</h2>
+            </div>
+
+            <div id="error-message" class="error-message" style="display: none;"></div>
+
+            <div class="mobile-cards" id="deliveries-container">
+                <div style="text-align:center; padding: 2rem;">Loading...</div>
+            </div>
+        </main>
+    </div>
+
+    <script src="../js/api.js"></script>
+    <script src="../js/auth.js"></script>
+    <script src="js/rider.js"></script>
+</body>
+</html>
