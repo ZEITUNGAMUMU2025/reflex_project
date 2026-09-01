@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     createForm.addEventListener('submit', async (e) => {
         e.preventDefault();
-        
+
         const data = {
             customer_name: document.getElementById('customer_name').value,
             customer_phone: document.getElementById('customer_phone').value,
@@ -72,7 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
             item_description: document.getElementById('item_description').value
         };
 
-        const btn = createForm.querySelector('button[type="submit"]');
+        const btn = document.getElementById('create-delivery-btn');
         btn.textContent = 'Creating...';
         btn.disabled = true;
 

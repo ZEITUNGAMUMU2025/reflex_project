@@ -58,6 +58,19 @@ class ApiService {
         return data;
     }
 
+    async register(userData) {
+        const response = await fetch(`${this.baseUrl}/auth/register/`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(userData)
+        });
+        
+        return this._handleResponse(response);
+    }
+
+
     async logout() {
         try {
             await fetch(`${this.baseUrl}/auth/logout/`, {

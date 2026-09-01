@@ -1,47 +1,249 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reflex - Login</title>
+    <title>Reflex - Delivery Management</title>
     <link rel="stylesheet" href="css/style.css">
     <!-- Google Fonts for modern typography -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
-<body class="login-body">
-    <div class="login-container">
-        <div class="login-card">
+
+<body class="landing-body">
+    <!-- Header -->
+    <header class="landing-header">
+        <div class="container header-container">
             <h1 class="logo">Reflex</h1>
-            <p class="subtitle">Log in to manage your deliveries.</p>
-            
-            <div id="login-error" class="error-message" style="display: none;"></div>
-            
-            <form id="login-form">
-                <div class="form-group">
-                    <label for="username">Email</label>
-                    <input type="email" id="username" name="username" required placeholder="Enter your email">
+            <nav class="nav-links">
+                <a href="#how-it-works">How It Works</a>
+                <a href="#roles">Who It's For</a>
+            </nav>
+            <div style="display: flex; gap: 1rem;">
+                <button class="btn btn-outline" id="open-login-modal" style="background: white;">Sign In</button>
+                <button class="btn btn-primary" id="open-register-modal">Register</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container hero-container">
+                <div class="hero-content">
+                    <h2 class="hero-title">Coordinate deliveries.<br>Know what's happening.</h2>
+                    <!--<p class="hero-subtitle">Reflex helps retailers, dispatchers and riders manage deliveries seamlessly
+                        from request to confirmation.</p>-->
+                    <button class="btn btn-primary btn-lg" id="hero-sign-in">Get Started</button>
                 </div>
-                
-                <div class="form-group">
-                    <label for="password">Password</label>
-                    <div class="password-wrapper">
-                        <input type="password" id="password" name="password" required placeholder="Enter password">
-                        <button type="button" class="toggle-password" id="toggle-password" aria-label="Show password" title="Show password">
-                            <!-- Eye icon (default) -->
-                            <svg id="eye-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
-                            <!-- Eye off icon (hidden by default) -->
-                            <svg id="eye-off-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path><line x1="1" y1="1" x2="23" y2="23"></line></svg>
-                        </button>
+            </div>
+        </section>
+
+        <!-- How It Works Section -->
+        <section id="how-it-works" class="features-section bg-light">
+            <div class="container">
+                <h2 class="section-title">How Reflex Works</h2>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <div class="feature-number">1</div>
+                        <h3>Request</h3>
+                        <p>Retailer creates a delivery request with customer and item details.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-number">2</div>
+                        <h3>Assign</h3>
+                        <p>Dispatcher views incoming requests and assigns the delivery to a rider.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-number">3</div>
+                        <h3>Deliver</h3>
+                        <p>Rider picks up the item, updates the delivery status, and confirms the order.</p>
                     </div>
                 </div>
-                
-                <button type="submit" class="btn btn-primary btn-block">Login</button>
-            </form>
+            </div>
+        </section>
+
+        <!-- Roles Section -->
+        <section id="roles" class="features-section">
+            <div class="container">
+                <h2 class="section-title">Built for Everyone in the Chain</h2>
+                <div class="roles-grid">
+                    <div class="role-card">
+                        <div class="role-icon">🏪</div>
+                        <h3>Retailers</h3>
+                        <p>Create and track delivery requests effortlessly.</p>
+                    </div>
+                    <div class="role-card">
+                        <div class="role-icon">🎧</div>
+                        <h3>Dispatchers</h3>
+                        <p>Assign and monitor deliveries across your fleet.</p>
+                    </div>
+                    <div class="role-card">
+                        <div class="role-icon">🛵</div>
+                        <h3>Riders</h3>
+                        <p>Manage assigned deliveries and update status on the go.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Global Footer -->
+    <footer class="global-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h2 class="logo footer-logo">Reflex</h2>
+                    <p>Delivery coordination made simple.</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Reflex. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Login Modal -->
+    <div class="modal-overlay" id="login-modal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3>Sign In</h3>
+                <button class="close-btn" id="close-login-modal" aria-label="Close modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div id="login-error" class="error-message" style="display: none;"></div>
+
+                <form id="login-form">
+                    <div class="form-group">
+                        <label for="username">Email</label>
+                        <input type="email" id="username" name="username" required placeholder="Enter your email">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <div class="password-wrapper">
+                            <input type="password" id="password" name="password" required placeholder="Enter password">
+                            <button type="button" class="toggle-password" id="toggle-password"
+                                aria-label="Show password" title="Show password">
+                                <svg id="eye-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                    <circle cx="12" cy="12" r="3"></circle>
+                                </svg>
+                                <svg id="eye-off-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" style="display: none;">
+                                    <path
+                                        d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24">
+                                    </path>
+                                    <line x1="1" y1="1" x2="23" y2="23"></line>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+                </form>
+            </div>
         </div>
     </div>
 
-    <script src="js/api.js"></script>
-    <script src="js/auth.js"></script>
+    <!-- Registration Modal -->
+    <div class="modal-overlay" id="register-modal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3>Create Account</h3>
+                <button class="close-btn" id="close-register-modal" aria-label="Close modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div id="register-error" class="error-message" style="display: none;"></div>
+                <div id="register-success" class="success-message" style="display: none; text-align: center;">
+                    Account created successfully.
+                    <br>You can now sign in using your email and password.
+                    <br><br>
+                    <button class="btn btn-primary btn-block" id="switch-to-login">Sign In</button>
+                </div>
+
+                <form id="register-form">
+                    <div class="form-group">
+                        <label for="reg-role">Role</label>
+                        <select id="reg-role" name="role" required>
+                            <option value="" disabled selected>Select Role</option>
+                            <option value="RETAILER">Retailer</option>
+                            <option value="DISPATCHER">Dispatcher</option>
+                            <option value="RIDER">Rider</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="reg-email">Email</label>
+                        <input type="email" id="reg-email" name="email" required placeholder="Enter your email">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="reg-phone">Phone Number</label>
+                        <input type="text" id="reg-phone" name="phone" required placeholder="Enter your phone number">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="reg-password">Password</label>
+                        <div class="password-wrapper">
+                            <input type="password" id="reg-password" name="password" required
+                                placeholder="Create password">
+                            <button type="button" class="toggle-password" id="toggle-reg-password"
+                                aria-label="Show password" title="Show password">
+                                <svg class="eye-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                    <circle cx="12" cy="12" r="3"></circle>
+                                </svg>
+                                <svg class="eye-off-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" style="display: none;">
+                                    <path
+                                        d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24">
+                                    </path>
+                                    <line x1="1" y1="1" x2="23" y2="23"></line>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="reg-confirm-password">Confirm Password</label>
+                        <div class="password-wrapper">
+                            <input type="password" id="reg-confirm-password" name="confirm-password" required
+                                placeholder="Confirm password">
+                            <button type="button" class="toggle-password" id="toggle-reg-confirm-password"
+                                aria-label="Show password" title="Show password">
+                                <svg class="eye-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                    <circle cx="12" cy="12" r="3"></circle>
+                                </svg>
+                                <svg class="eye-off-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" style="display: none;">
+                                    <path
+                                        d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24">
+                                    </path>
+                                    <line x1="1" y1="1" x2="23" y2="23"></line>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-block">Create Account</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/api.js?v=2"></script>
+    <script src="js/auth.js?v=2"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             // Check if already logged in
@@ -49,28 +251,75 @@
                 Auth.redirectBasedOnRole();
             }
 
-            const loginForm = document.getElementById('login-form');
-            const passwordInput = document.getElementById('password');
-            const togglePasswordBtn = document.getElementById('toggle-password');
-            const eyeIcon = document.getElementById('eye-icon');
-            const eyeOffIcon = document.getElementById('eye-off-icon');
+            // Modal logic
+            const loginModal = document.getElementById('login-modal');
+            const openLoginModalBtn = document.getElementById('open-login-modal');
+            const heroSignInBtn = document.getElementById('hero-sign-in');
+            const closeLoginModalBtn = document.getElementById('close-login-modal');
 
-            togglePasswordBtn.addEventListener('click', () => {
-                if (passwordInput.type === 'password') {
-                    passwordInput.type = 'text';
-                    eyeIcon.style.display = 'none';
-                    eyeOffIcon.style.display = 'block';
-                    togglePasswordBtn.setAttribute('aria-label', 'Hide password');
-                    togglePasswordBtn.setAttribute('title', 'Hide password');
-                } else {
-                    passwordInput.type = 'password';
-                    eyeIcon.style.display = 'block';
-                    eyeOffIcon.style.display = 'none';
-                    togglePasswordBtn.setAttribute('aria-label', 'Show password');
-                    togglePasswordBtn.setAttribute('title', 'Show password');
-                }
+            const registerModal = document.getElementById('register-modal');
+            const openRegisterModalBtn = document.getElementById('open-register-modal');
+            const closeRegisterModalBtn = document.getElementById('close-register-modal');
+            const switchToLoginBtn = document.getElementById('switch-to-login');
+
+            const openModal = (modal) => {
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden'; // Prevent background scrolling
+            };
+
+            const closeModal = (modal) => {
+                modal.classList.remove('active');
+                document.body.style.overflow = '';
+            };
+
+            openLoginModalBtn.addEventListener('click', () => openModal(loginModal));
+            heroSignInBtn.addEventListener('click', () => openModal(loginModal));
+            closeLoginModalBtn.addEventListener('click', () => closeModal(loginModal));
+
+            openRegisterModalBtn.addEventListener('click', () => openModal(registerModal));
+            closeRegisterModalBtn.addEventListener('click', () => closeModal(registerModal));
+
+            switchToLoginBtn.addEventListener('click', () => {
+                closeModal(registerModal);
+                openModal(loginModal);
             });
 
+            // Close on overlay click
+            loginModal.addEventListener('click', (e) => {
+                if (e.target === loginModal) closeModal(loginModal);
+            });
+            registerModal.addEventListener('click', (e) => {
+                if (e.target === registerModal) closeModal(registerModal);
+            });
+
+            // Password toggle logic helper
+            const setupPasswordToggle = (inputEl, btnEl) => {
+                const eyeIcon = btnEl.querySelector('.eye-icon') || btnEl.querySelector('svg:first-child');
+                const eyeOffIcon = btnEl.querySelector('.eye-off-icon') || btnEl.querySelector('svg:last-child');
+
+                btnEl.addEventListener('click', () => {
+                    if (inputEl.type === 'password') {
+                        inputEl.type = 'text';
+                        if (eyeIcon) eyeIcon.style.display = 'none';
+                        if (eyeOffIcon) eyeOffIcon.style.display = 'block';
+                        btnEl.setAttribute('aria-label', 'Hide password');
+                        btnEl.setAttribute('title', 'Hide password');
+                    } else {
+                        inputEl.type = 'password';
+                        if (eyeIcon) eyeIcon.style.display = 'block';
+                        if (eyeOffIcon) eyeOffIcon.style.display = 'none';
+                        btnEl.setAttribute('aria-label', 'Show password');
+                        btnEl.setAttribute('title', 'Show password');
+                    }
+                });
+            };
+
+            setupPasswordToggle(document.getElementById('password'), document.getElementById('toggle-password'));
+            setupPasswordToggle(document.getElementById('reg-password'), document.getElementById('toggle-reg-password'));
+            setupPasswordToggle(document.getElementById('reg-confirm-password'), document.getElementById('toggle-reg-confirm-password'));
+
+            // Login submission
+            const loginForm = document.getElementById('login-form');
             loginForm.addEventListener('submit', async (e) => {
                 e.preventDefault();
                 const username = document.getElementById('username').value;
@@ -80,18 +329,59 @@
 
                 try {
                     errorDiv.style.display = 'none';
-                    btn.textContent = 'Logging in...';
+                    btn.textContent = 'Signing In...';
                     btn.disabled = true;
 
                     await API.login(username, password);
                 } catch (error) {
-                    errorDiv.textContent = error.message || 'Login failed. Please check your credentials.';
+                    errorDiv.textContent = error.message || 'Invalid email or password.';
                     errorDiv.style.display = 'block';
-                    btn.textContent = 'Login';
+                    btn.textContent = 'Sign In';
+                    btn.disabled = false;
+                }
+            });
+
+            // Register submission
+            const registerForm = document.getElementById('register-form');
+            registerForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+
+                const email = document.getElementById('reg-email').value;
+                const phone = document.getElementById('reg-phone').value;
+                const role = document.getElementById('reg-role').value;
+                const password = document.getElementById('reg-password').value;
+                const confirmPassword = document.getElementById('reg-confirm-password').value;
+
+                const errorDiv = document.getElementById('register-error');
+                const successDiv = document.getElementById('register-success');
+                const btn = registerForm.querySelector('button');
+
+                errorDiv.style.display = 'none';
+
+                if (password !== confirmPassword) {
+                    errorDiv.textContent = 'Passwords do not match.';
+                    errorDiv.style.display = 'block';
+                    return;
+                }
+
+                try {
+                    btn.textContent = 'Creating Account...';
+                    btn.disabled = true;
+
+                    await API.register({ email, phone, role, password });
+
+                    // Show success
+                    registerForm.style.display = 'none';
+                    successDiv.style.display = 'block';
+                } catch (error) {
+                    errorDiv.textContent = error.message || 'Unable to create your account right now. Please try again.';
+                    errorDiv.style.display = 'block';
+                    btn.textContent = 'Create Account';
                     btn.disabled = false;
                 }
             });
         });
     </script>
 </body>
+
 </html>

@@ -111,15 +111,22 @@ document.addEventListener('DOMContentLoaded', () => {
     async function loadRiders() {
         try {
             const riders = await API.getRiders();
-            riderSelect.innerHTML = '<option value="">-- Select Rider --</option>';
-            riders.forEach(r => {
-                const opt = document.createElement('option');
-                opt.value = r.id;
-                opt.textContent = r.name;
-                riderSelect.appendChild(opt);
-            });
+            if (riders.length === 0) {
+                riderSelect.innerHTML = '<option value="">No riders available</option>';
+            } else {
+                riderSelect.innerHTML = '<option value="">-- Select Rider --</option>';
+                riders.forEach(r => {
+                    const opt = document.createElement('option');
+                    opt.value = r.id;
+                    opt.textContent = r.email || r.username;
+                    riderSelect.appendChild(opt);
+                });
+            }
             ridersLoaded = true;
         } catch (error) {
+            console.error(error);
+            assignError.textContent = "Failed to fetch available riders.";
+            assignError.style.display = 'block';
             riderSelect.innerHTML = '<option value="">Error loading riders</option>';
         }
     }
@@ -128,7 +135,7 @@ document.addEventListener('DOMContentLoaded', () => {
         e.preventDefault();
         const deliveryId = document.getElementById('delivery_id_input').value;
         const riderId = riderSelect.value;
-        const btn = assignForm.querySelector('button[type="submit"]');
+        const btn = document.querySelector('button[form="assign-form"]');
 
         if (!riderId) {
             assignError.textContent = "Please select a rider.";

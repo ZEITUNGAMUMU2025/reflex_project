@@ -39,6 +39,34 @@ class LoginView(views.APIView):
             }
         })
 
+class RegisterView(views.APIView):
+    permission_classes = [AllowAny]
+
+    def post(self, request):
+        email = request.data.get('email')
+        phone = request.data.get('phone')
+        password = request.data.get('password')
+        role = request.data.get('role')
+
+        if not email or not password or not phone or not role:
+            return Response({'detail': 'Please provide email, phone, password, and role.'}, status=status.HTTP_400_BAD_REQUEST)
+
+        if role not in ['RETAILER', 'DISPATCHER', 'RIDER']:
+            return Response({'detail': 'Invalid role.'}, status=status.HTTP_400_BAD_REQUEST)
+
+        if User.objects.filter(email=email).exists():
+            return Response({'detail': 'An account with this email already exists.'}, status=status.HTTP_400_BAD_REQUEST)
+
+        user = User.objects.create_user(
+            username=email,
+            email=email,
+            password=password,
+            phone=phone,
+            role=role
+        )
+
+        return Response({'detail': 'Account created successfully.'}, status=status.HTTP_201_CREATED)
+
 class LogoutView(views.APIView):
     permission_classes = [IsAuthenticated]
 
