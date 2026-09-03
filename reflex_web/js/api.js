@@ -1,4 +1,4 @@
-const API_BASE_URL = "https://reflex-api-xbhu.onrender.com";
+const API_BASE_URL = "https://reflex-api-xbhu.onrender.com/api";
 
 class ApiService {
     constructor() {
