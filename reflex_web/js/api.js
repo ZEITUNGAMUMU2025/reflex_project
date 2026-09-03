@@ -87,14 +87,14 @@ class ApiService {
     }
 
     async getDeliveries() {
-        const response = await fetch(`${this.baseUrl}/deliveries/`, {
+        const response = await fetch(`${this.baseUrl}/api/deliveries/`, {
             headers: this._getHeaders()
         });
         return this._handleResponse(response);
     }
 
     async createDelivery(data) {
-        const response = await fetch(`${this.baseUrl}/deliveries/`, {
+        const response = await fetch(`${this.baseUrl}/api/deliveries/`, {
             method: 'POST',
             headers: this._getHeaders(),
             body: JSON.stringify(data)
@@ -103,14 +103,14 @@ class ApiService {
     }
 
     async getRiders() {
-        const response = await fetch(`${this.baseUrl}/riders/`, {
+        const response = await fetch(`${this.baseUrl}/api/riders/`, {
             headers: this._getHeaders()
         });
         return this._handleResponse(response);
     }
 
     async assignRider(deliveryId, riderId) {
-        const response = await fetch(`${this.baseUrl}/deliveries/${deliveryId}/assign/`, {
+        const response = await fetch(`${this.baseUrl}/api/deliveries/${deliveryId}/assign/`, {
             method: 'POST',
             headers: this._getHeaders(),
             body: JSON.stringify({ rider_id: riderId })
@@ -119,7 +119,7 @@ class ApiService {
     }
 
     async updateDeliveryStatus(deliveryId, status) {
-        const response = await fetch(`${this.baseUrl}/deliveries/${deliveryId}/status/`, {
+        const response = await fetch(`${this.baseUrl}/api/deliveries/${deliveryId}/status/`, {
             method: 'PATCH',
             headers: this._getHeaders(),
             body: JSON.stringify({ status })
