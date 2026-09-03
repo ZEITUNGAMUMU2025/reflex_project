@@ -41,7 +41,7 @@ class ApiService {
     }
 
     async login(username, password) {
-        const response = await fetch(`${this.baseUrl}/auth/login/`, {
+        const response = await fetch(`${this.baseUrl}/api/auth/login/`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -59,7 +59,7 @@ class ApiService {
     }
 
     async register(userData) {
-        const response = await fetch(`${this.baseUrl}/auth/register/`, {
+        const response = await fetch(`${this.baseUrl}/api/auth/register/`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -73,7 +73,7 @@ class ApiService {
 
     async logout() {
         try {
-            await fetch(`${this.baseUrl}/auth/logout/`, {
+            await fetch(`${this.baseUrl}/api/auth/logout/`, {
                 method: 'POST',
                 headers: this._getHeaders()
             });
