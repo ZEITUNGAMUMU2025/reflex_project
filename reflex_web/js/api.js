@@ -1,4 +1,4 @@
-const API_BASE_URL = "http://127.0.0.1:8000/api";
+const API_BASE_URL = "https://reflex-api-xbhu.onrender.com";
 
 class ApiService {
     constructor() {
@@ -23,7 +23,7 @@ class ApiService {
             window.location.href = '/index.html';
             throw new Error("Unauthorized. Please log in again.");
         }
-        
+
         let data;
         try {
             data = await response.json();
@@ -32,8 +32,8 @@ class ApiService {
         }
 
         if (!response.ok) {
-            const errorMsg = data && data.detail ? data.detail : 
-                             (data ? JSON.stringify(data) : `Server error: ${response.status}`);
+            const errorMsg = data && data.detail ? data.detail :
+                (data ? JSON.stringify(data) : `Server error: ${response.status}`);
             throw new Error(errorMsg);
         }
 
@@ -48,12 +48,12 @@ class ApiService {
             },
             body: JSON.stringify({ username, password })
         });
-        
+
         const data = await this._handleResponse(response);
-        
+
         localStorage.setItem('reflex_token', data.token);
         localStorage.setItem('reflex_user', JSON.stringify(data.user));
-        
+
         Auth.redirectBasedOnRole();
         return data;
     }
@@ -66,7 +66,7 @@ class ApiService {
             },
             body: JSON.stringify(userData)
         });
-        
+
         return this._handleResponse(response);
     }
 
